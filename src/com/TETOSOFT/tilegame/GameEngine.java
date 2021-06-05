@@ -28,6 +28,9 @@ public class GameEngine extends GameCore
     private InputManager inputManager;
     private TileMapDrawer drawer;
     
+    private SoundManager soundManager;
+
+    
     private GameAction moveLeft;
     private GameAction moveRight;
     private GameAction jump;
@@ -51,6 +54,20 @@ public class GameEngine extends GameCore
         
         // load first map
         map = mapLoader.loadNextMap();
+        
+         //added
+        try {
+			soundManager = new SoundManager();
+		} catch (UnsupportedAudioFileException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (LineUnavailableException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
     
     

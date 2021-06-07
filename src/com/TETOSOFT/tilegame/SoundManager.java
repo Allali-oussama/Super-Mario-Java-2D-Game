@@ -11,14 +11,24 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 public class SoundManager {
 
-    
+	Clip clip;
 	public SoundManager() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
     	File file = new File("C:\\Users\\USER\\Desktop\\Super-Mario-Java-2D-Game-master\\audio\\background.wav");
     	AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
-    	Clip clip = AudioSystem.getClip();
+    	clip = AudioSystem.getClip();
     	clip.open(audioStream);
     	clip.start();
     }
+	public void stop() {
+        clip.stop();
+    }
 
+	public void SoundGameOver() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+    	File file = new File("C:\\Users\\USER\\Desktop\\Super-Mario-Java-2D-Game-master\\audio\\Game_Over.wav");
+    	AudioInputStream audioStream = AudioSystem.getAudioInputStream(file);
+    	clip = AudioSystem.getClip();
+    	clip.open(audioStream);
+    	clip.start();
+    }
     
 }
